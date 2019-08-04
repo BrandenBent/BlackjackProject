@@ -4,42 +4,55 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
 public class Deck {
-	List<Card> deck = new ArrayList<>(52);
+	  private List<Card> cards;
 
-	public Deck(List<Card> deck) {
-		super();
-		this.deck = deck;
-	}
-	
-	public Deck() {
-		
-	}
-
-
-	public List<Card> createDeck() {
-		List<Card> deck = new ArrayList<>(52);
-		for (Suit suit : Suit.values()) {
-			for (Rank rank : Rank.values()) {
-				deck.add(new Card(rank, suit));
-			}
-		}
-		return deck;
+	  public Deck() {
+	    cards = createDeck();
+	  }
+	  
+	  public List<Card> createDeck(){
+	    List<Card> deck = new ArrayList<>(52);
+	    for(Suit s : Suit.values()) {
+	      for(Rank r : Rank.values()) {
+	        deck.add(new Card(r, s));
+	      }
+	    }
+	    return deck;
+	  }
+	  
+	  public List<Card> getCards() {
+		return cards;
 	}
 
-	public int checkDeckSize(List<Card> deck) {
-//		System.out.println(deck.size());
-		return deck.size();
+	public void setCards(List<Card> cards) {
+		this.cards = cards;
 	}
 
-	public void dealCard(List<Card> deck) {
-		System.out.println(deck.remove(0).toString());
+	public int checkDeckSize() {
+	    return cards.size();
+	  }
+	  
+	  public void shuffle() {
+	    Collections.shuffle(cards);
+	  }
+	  
+	  public Card dealCard() {
+	    return cards.remove(0);
+	  }
+	  
+	  public void showCard(Card card) {
+		  System.out.println(card.toString());
+	  }
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Cards in deck: ");
+		builder.append(cards);
+		builder.append(" ");
+		return builder.toString();
 	}
-
-	public List<Card> shuffleDeck(List<Card> deck) {
-		Collections.shuffle(deck);
-		return deck;
+	  
 	}
-
-}

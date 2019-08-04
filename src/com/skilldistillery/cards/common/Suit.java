@@ -1,23 +1,15 @@
 package com.skilldistillery.cards.common;
 
 public enum Suit {
-	HEARTS("Heart"), SPADES("Spade"), CLUBS("Club"), DIAMONDS("Diamond");	
-	
-	private final String name;
-	
-	private Suit(String name) {
-		this.name = name;
-		
-	}
+	  HEARTS("\u2665"), SPADES("\u2660"), CLUBS("\u2663"), DIAMONDS("\u2666");
+	  private String name;
 
-	public String getName() {
-		return name;
+	  Suit(String name) {
+	    this.name = name;
+	  }
+
+	  @Override
+	  public String toString() {
+	    return name;
+	  }
 	}
-	
-	@Override
-	public String toString() {
-		return this.getName();
-	}
-	
-	
-}
