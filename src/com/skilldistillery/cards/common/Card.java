@@ -54,6 +54,8 @@ public class Card {
 //	    return builder.toString();
 //	  }
 	  
+	  
+	  
 	  @Override
 	  public String toString() {
 	  	System.out.println(" ________");
@@ -73,4 +75,22 @@ public class Card {
 	  	}
 	  	return "";
 	  }
+
+	public Rank getRank() {
+		return rank;
+	}
+
+	public void setRank(Rank rank) {
+		this.rank = rank;
+	}
+
+	public Suit getSuit() {
+		return suit;
+	}
+
+	public void setSuit(Suit suit) {
+		this.suit = suit;
+	}
+
+
 	}
