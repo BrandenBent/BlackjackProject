@@ -11,7 +11,7 @@ public class Deck  {
 		cards = createDeck();
 	}
 
-	private List<Card> createDeck() {
+	public List<Card> createDeck() {
 		List<Card> deck = new ArrayList<Card>(52);
 		for (Suit suit : Suit.values()) {
 			for (Rank rank : Rank.values()) {
@@ -42,6 +42,11 @@ public class Deck  {
 
 	public Card removeCard() {
 		return cards.remove(0);
+	}
+
+	public void addCard(Card removeCard, Deck deck) {
+		((List<Card>) deck).add(removeCard);
+		
 	}
 
 //	public List<Card> getCards() {

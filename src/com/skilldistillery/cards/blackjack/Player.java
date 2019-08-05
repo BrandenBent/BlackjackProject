@@ -86,9 +86,4 @@ public class Player extends AbstractBlackjackPlayer {
 	}
 
 
-//	@Override
-//	public Boolean hitOrStay() {
-//		return null;
-//	}
-
 }

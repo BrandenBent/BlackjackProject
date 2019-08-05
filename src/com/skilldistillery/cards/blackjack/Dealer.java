@@ -23,7 +23,7 @@ public class Dealer extends AbstractBlackjackPlayer {
 		}
 		for (int i = 1; i < dealCards; i++) {
 			player.getHand().addCard(deck.removeCard());
-			this.getHand().addCard(deck.removeCard());
+			hand.addCard(deck.removeCard(), deck);
 		}
 	}
 	public void dealerFinal() {
@@ -45,11 +45,11 @@ public class Dealer extends AbstractBlackjackPlayer {
 	}
 
 	public int getNumCardsToDeal() {
-		return numCardsToDeal;
+		return dealCards;
 	}
 	
 	public void setNumCardsToDeal(int cardsDeal) {
-		this.numCardsToDeal = cardsDeal;
+		this.dealCards = cardsDeal;
 	}
 	
 	public static int getDealerMinScore() {
@@ -74,7 +74,7 @@ public class Dealer extends AbstractBlackjackPlayer {
 
 	@Override
 	public BlackjackHand getHand(BlackjackHand hand) {
-		return null;
+		return hand;
 	}
 
 
@@ -92,7 +92,6 @@ public class Dealer extends AbstractBlackjackPlayer {
 			while (this.getHand().getHandValue() < DEALER_MIN) {
 				this.getHand().addCard(deck.removeCard());
 				System.out.println("Dealer draws " + this.getHand().getHand().get(cardDrawn));
-//			this.setHand(hand);
 				System.out.println("Dealer " + this.getHand());
 				System.out.println("Dealer value: " + this.getHand().getHandValue());
 				System.out.println();

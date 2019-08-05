@@ -33,7 +33,6 @@ public abstract class AbstractBlackjackPlayer {
 	}
 
 	public boolean hitOrStay() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

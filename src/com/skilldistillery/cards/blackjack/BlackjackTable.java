@@ -20,7 +20,9 @@ public class BlackjackTable {
 
 
 	public void playHand() {
-//		System.out.println("There are " + dealer.getDeck().checkDeckSize() + " cards currently in the deck.\n"); //displays current count of the deck
+		
+		
+		
 		dealer.dealHand(player);
 		player.showHand();
 		dealer.dealerFinal();
@@ -60,21 +62,21 @@ public class BlackjackTable {
 	private void winningHand() {
 		if (dealer.getHand().isBust() && player.getHand().getHandValue() < 21) {
 			System.out.println();
-			System.out.println("Player Wins!");
+			System.out.println("You win!");
 			return;
 		}
 		if (dealer.getHand().getHandValue() < player.getHand().getHandValue()) {
 			System.out.println();
 			player.showHand();
 			dealer.dealerFinal();
-			System.out.println("Player Wins!");
+			System.out.println("You win!");
 			return;
 		}
 		if (dealer.getHand().getHandValue() > player.getHand().getHandValue()) {
 			System.out.println();
 			dealer.dealerFinal();
 			player.showHand();
-			System.out.println("Dealer Wins!");
+			System.out.println("You lose!");
 			return;
 		}
 		if (dealer.getHand().getHandValue() == player.getHand().getHandValue()) {
