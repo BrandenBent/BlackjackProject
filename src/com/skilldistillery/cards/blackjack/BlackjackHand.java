@@ -6,21 +6,29 @@ import java.util.List;
 import com.skilldistillery.cards.common.AbstractHand;
 import com.skilldistillery.cards.common.Card;
 import com.skilldistillery.cards.common.Rank;
+import com.skilldistillery.cards.common.Suit;
 
-public class BlackjackHand {
-	private List<Card> hand = new ArrayList<>();
+public class BlackjackHand extends AbstractHand{
+	
+
+
+	
+//	BlackjackHand hand = new BlackjackHand();
+//	private List<Card> hand = new ArrayList<>();
 	private static final int BLACKJACK = 21;
 	private boolean blackjack;
 	private boolean bust;
 	
-	
-	
-	
-	public void showHand() {
-		for (Card card : hand) {
-			System.out.println(card.toString());
-		}
+	public BlackjackHand() {
+		super();
 	}
+	
+	
+//	public void showHand() {
+//		for (Card card : hand) {
+//			System.out.println(card.toString());
+//		}
+//	}
 	
 	
 
@@ -33,9 +41,10 @@ public class BlackjackHand {
 		return blackjack;
 	}
 
-	public List<Card> getHand() {
-		return hand;
-	}
+//	public List<Card> getHand() {
+//		return hand;
+//	}
+	
 
 	public boolean isBust() {
 		if (this.getHandValue() > BLACKJACK) {
@@ -51,26 +60,35 @@ public class BlackjackHand {
 	}
 
 
-	public void setHand(List<Card> hand) {
-		this.hand = hand;
-	}
+//	public void addCard(Card card) {
+//		hand.add(card);
+//	}
+//
+//
+//
+//	@Override
+//	public String toString() {
+//		showHand();
+//		return "";
+//	}
+
+
+
+//	@Override
+//	public int getHandValue() {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+
 	
-	
+	@Override
 	public int getHandValue() {
 		int handValue = 0;
-		for (Card card : hand) {
+		for (Card card : cards) {
 			handValue += card.getValue();
 		}
 		return handValue;
 	}
-
-
-
-	public void addCard(Card card) {
-		hand.add(card);
-	}
-
-
 
 
 }

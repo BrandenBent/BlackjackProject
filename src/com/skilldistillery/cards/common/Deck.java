@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Deck  {
+public class Deck {
 	private List<Card> cards;
 
 	public Deck() {
 		cards = createDeck();
 	}
 
-	public List<Card> createDeck() {
+	private List<Card> createDeck() {
 		List<Card> deck = new ArrayList<Card>(52);
 		for (Suit suit : Suit.values()) {
 			for (Rank rank : Rank.values()) {
@@ -40,50 +40,13 @@ public class Deck  {
 		Collections.shuffle(cards);
 	}
 
-	public Card removeCard() {
+	public Card dealCard() {
 		return cards.remove(0);
 	}
 
-	public void addCard(Card removeCard, Deck deck) {
-		((List<Card>) deck).add(removeCard);
-		
+	public List<Card> getCards() {
+		return cards;
 	}
-
-//	public List<Card> getCards() {
-//		return cards;
-//	}
-//		for (Card card : deck.cards) {
-////			switch(card.getValue()) {
-////			case: TWO 
-////				value += 2;
-////				break;
-//			if (card.getValue() == 2) {
-//				value += 2;
-//			} else if (card.getValue() == 3) {
-//				value += 3;
-//			} else if (card.getValue() == 4) {
-//				value += 4;
-//			} else if (card.getValue() == 5) {
-//				value += 5;
-//			} else if (card.getValue() == 6) {
-//				value += 6;
-//			} else if (card.getValue() == 7) {
-//				value += 7;
-//			} else if (card.getValue() == 8) {
-//				value += 8;
-//			} else if (card.getValue() == 9) {
-//				value += 9;
-//			} else if (card.getValue() == 10) {
-//				value += 10;
-//			} else if (card.getValue() == 11) {
-//				value += 11;
-//			}
-//
-//		}
-//
-//		return value;
-//
-//	}
 
 	
 

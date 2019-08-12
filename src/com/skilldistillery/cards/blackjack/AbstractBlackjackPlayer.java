@@ -7,7 +7,7 @@ import com.skilldistillery.cards.common.Card;
 import com.skilldistillery.cards.common.Deck;
 
 public abstract class AbstractBlackjackPlayer {
-	private BlackjackHand hand; 
+	protected BlackjackHand hand = new BlackjackHand(); 
 	
 	public abstract void showCard();
 
@@ -16,7 +16,6 @@ public abstract class AbstractBlackjackPlayer {
 
 	public abstract BlackjackHand getHand(BlackjackHand hand);
 
-	protected abstract List<Card> createHand();
 
 	public Boolean hitOrStay(Scanner sc) {
 		return null;
@@ -34,6 +33,16 @@ public abstract class AbstractBlackjackPlayer {
 
 	public boolean hitOrStay() {
 		return false;
+	}
+
+	public Deck getHand(Deck deck) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	protected List<Card> createHand() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

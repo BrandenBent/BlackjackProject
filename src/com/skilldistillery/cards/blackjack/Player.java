@@ -9,40 +9,15 @@ import com.skilldistillery.cards.common.Deck;
 
 public class Player extends AbstractBlackjackPlayer {
 	private BlackjackHand hand = new BlackjackHand();
-	
-	Scanner sc = new Scanner(System.in);
-	
-	public Player() {
-		
-	}
-	
-	public void showHand() {
-		System.out.println("Player " + this.getHand());
-		System.out.println("Player Hand Value: " + this.getHand().getHandValue() + "\n");
-	}
 
-
-	public void setHand(BlackjackHand hand) {
-		this.hand = hand;
-	}
-
-	 public List<Card> createHand(){
-		  List<Card> deck = new ArrayList<>(0);
-		  return deck;
-	  }
-	 
-	 public void drawCard() {
-		 
-	 }
-
-	public Boolean hitOrStay(Deck deck, Scanner sc) {
+	public boolean hitOrStay(Deck deck, Scanner sc) {
 		boolean hit = true;
 		int cardDrawn = 2;
 
 		while (hit) {
 			int choice = 0;
 			while (choice == 0) {
-				System.out.print("Press 1 to hit or 2 to stay: ");
+				System.out.print("Press 1 to hit or 2 to stay: " + "\n");
 				try {
 					choice = sc.nextInt();
 				} catch (Exception e) {
@@ -50,16 +25,16 @@ public class Player extends AbstractBlackjackPlayer {
 				}
 			}
 			if (choice == 1) {
-				this.getHand().addCard(deck.removeCard());
-				System.out.println("Player Cards: " + this.getHand().getHand().get(cardDrawn));
-				System.out.println("Current" + this.getHand() + "\n" );
-				System.out.println("Current value: " + this.getHand().getHandValue() + "\n");
+				this.getHand().addCard(deck.dealCard());
+				System.out.println("Player Card Drawn: " + this.getHand().getCards().get(cardDrawn));
+				System.out.println("Players Current " + this.getHand() + "\n" );
+				System.out.println("Players Current Hand Total: " + this.getHand().getHandValue() + "\n");
 				cardDrawn++;
 				hit = true;
 			}
 			if (this.getHand().isBust()) {
-				System.out.println("dealer bust");
-				System.out.println("dealer wins");
+				System.out.println("BUST!");
+				System.out.println("House Wins!!!\n");
 				hit = false;
 			}
 			if (choice == 2) {
@@ -69,21 +44,37 @@ public class Player extends AbstractBlackjackPlayer {
 		return hit;
 	}
 
-	@Override
-	public void showCard() {
-		
+	public void playerHandInfo() {
+		System.out.println("Player " + this.getHand());
+		System.out.println("Player Hand Value: " + this.getHand().getHandValue() + "\n");
 	}
-	
 	@Override
-	public BlackjackHand getHand(BlackjackHand hand) {
-		return hand;
-		
+	public boolean hitOrStay() {
+		// TODO Auto-generated method stub
+		return false;
 	}
-
-	@Override
 	public BlackjackHand getHand() {
 		return hand;
 	}
+	public void setHand(BlackjackHand hand) {
+		this.hand = hand;
+	}
 
+	@Override
+	public void showCard() {
+		// TODO Auto-generated method stub
+		
+	}
 
+	@Override
+	protected void showHand() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public BlackjackHand getHand(BlackjackHand hand) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
